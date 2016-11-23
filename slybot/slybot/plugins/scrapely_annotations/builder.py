@@ -384,7 +384,7 @@ def apply_annotations(annotations, target_page):
         filtered[ann['tagid']].append(ann)
     dummy = [(1e9, [{}])]
     sorted_annotations = sorted([(int(k), v) for k, v in filtered.items()] +
-                                dummy)
+                                dummy, key=lambda tup: tup[0])
     try:
         for aid, annotation_data in sorted_annotations:
             # Move target until replacement/insertion point
